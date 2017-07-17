@@ -1,0 +1,50 @@
+*********************************************************
+*		BaconMap - Resources Defined		
+*							
+* BaconMap Guinea Release (Beta 0.7.0)                
+*							
+* Released on SourceForge.net and baconmap.org          
+* For more information visit http://www.baconmap.org    
+*							
+* Document by Ed Zenisek (ezenisek@baconmap.org)	
+*							
+* Released on May 11th, 2009
+*********************************************************
+
+Thank you for using BaconMap.  Please visit baconmap.org with any 
+questions, comments, bug reports, or problems.
+
+BaconMap Change Log:
+
+**Latest Version**
+**** Beta 0.6.0 -> Beta 0.7.0 (Guinea) ****
+Added the following fields to the database for all resources:
+
+      Annual Cost
+      Vendor
+      Purchase / Installation Date
+      Last Maintenance Date
+      Recovery Time Objective (in days)
+
+Edited add/edit/details pages to reflect the above changes
+Added the ability for the Resource Maps to be Left to Right rather than Top Down
+Added an administrative option to choose map orientation
+Added slide menus to both add and edit pages to make them easier to read
+Updating several SQL statements with sort orders to increase readability of drop down menus
+Updated PDF reporting engine to allow for cascading sub-reports
+Fixed a bug where documents with spaces wouldn't be output correctly to the browser
+Fixed the login page so hitting enter will initiate login rather than needing to click the 'login' button.
+Edited Map Image code to reduce width and prevent horizontal scrollbar when mapping a single resource
+Minor edits to the stylesheet to reduce horizontal frame overflow
+Other minor stylesheet changes
+Removed Host_Id entry from resources because it felt redundant
+Fixed a bug where the login page wouldn't display properly when tying to get to the admin area after a session timeout
+Minor php error notification bug fixes
+Updated wz_tooltip to version 5.31 from version 5.01
+Ongoing code changes to meet WC3 compliance
+
+**** Alpha to Beta (0.5 -> 0.6) ****
+Numerous warning messages fixed
+Numerous small bugs fixed
+User authenticaion and security system added
+Document upload and association system added

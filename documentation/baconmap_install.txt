@@ -1,0 +1,78 @@
+********************************************************************************
+BaconMap Resource Mapping Software Installation 
+BaconMap Guinea Release (Beta) 0.7
+http://www.baconmap.org
+Latest release version available at http://sourceforge.net/project/showfiles.php?group_id=217166
+Latest build available via SVN at https://baconmap.svn.sourceforge.net/svnroot/baconmap
+
+Updated on 05-08-2009
+********************************************************************************
+
+You will require the following before BaconMap can be installed:
+- A computer running webserver software such as Apache(Linux) or IIS(Windows)
+	- The webserver will need to support PHP, and have PHP installed
+	- BaconMap was tested under PHP 5.X.
+	- Other versions are not currently supported, but may work.
+- A MySQL database for BaconMap or use
+- Ability to edit file permissions in the BaconMap folders
+
+In addition, you'll need to install GraphViz on the same server as BaconMap will go
+if you wish to use BaconMap's mapping and flowcharting functions.  GraphViz is an 
+Open Source package, and can be found at http://www.graphviz.org.  The following
+instructions are for setting up GraphViz.  If you have any questions or need further
+assistance, including installing for Windows, please visit the GraphViz Website.
+
+
+To install GraphViz (Linux):
+
+1. Download the latest GraphViz source
+	- http://www.graphviz.org/Download_source.php
+	- Save it to a temporary location
+
+2. Untar this file:
+    	- tar xzvf /tmp/graphviz-xxx.tar.gz (replace xxx with your version number)
+    	- This command will extract sources to a new directory created
+          within the current directory with the name of the package and version
+
+3. Run the following to compile and install GraphViz:
+	- cd into the new directory
+	- ./configure
+	- make
+	- make install
+
+4. Delete the installation directory:
+	- cd ../;rm -r graphviz-xxx /tmp/graphviz-xxx.tar.gz
+
+If all went well, GraphViz should be installed and ready to use.
+
+
+
+To install BaconMap:
+
+1. Unzip or UnTar the appropriate file to your webserver where BaconMap will reside.
+	- You can install BaconMap anywhere you like, but the file structure inside 
+	  the BaconMap directory must remain intact.
+
+2. Set the following files or directories to be writable by the PHP user:
+	- /logs and all subdirectories
+	- /image
+	- /includes/settings.php
+	- /includes/roles.txt
+	- /includes/dbtypes.txt
+	- /includes/ostypes.txt
+	- /includes/poctypes.txt
+	- /uploads
+
+3. Setup your database for BaconMap to use
+	- BaconMap will need a database and a database user to access it.
+	- We recommend you give BaconMap its own user and restrict access to only
+	  the BaconMap database.
+	- The BaconMap installation program will create all the needed tables and 
+	  fields in the database when it runs for the first time.
+
+4. Once everything is set, open your browser and browse to the 
+   BaconMap Directory on your server.  The setup script should run automatically.
+   Follow the instructions there and your BaconMap installation should be complete.
+
+
+If you have any comments, questions, or problems, please visit www.baconmap.org.

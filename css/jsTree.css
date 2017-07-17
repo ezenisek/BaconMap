@@ -1,0 +1,47 @@
+/* Copyright notice */
+
+body, td{
+	font-size: 10px;
+	font-family: Verdana, sans-serif;
+	white-space: nowrap;
+	margin: 5px
+}
+
+#treeContainer{
+	margin: 0px;
+	padding: 0px
+}
+
+img{
+	vertical-align: middle;
+	border: 0px;
+}
+
+img.action{
+	cursor: pointer;
+}
+
+a{
+	text-decoration: none
+}
+
+table.menu{
+	background-color: #ffffff;
+	border: 1px solid #999999
+}
+
+a:link{
+	color: Navy;
+}
+
+a:visited{
+	color: #666666;
+}
+
+a:hover{
+	color: #993300;
+}
+
+a.tree{
+	margin-left: 6px
+}

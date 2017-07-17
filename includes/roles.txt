@@ -1,0 +1,29 @@
+Internal Webserver
+External Webserver
+Mail Server
+Mail Host
+File Storage
+File Hosting
+Authentication
+Database Server
+Database Service
+Application Server
+Print Server
+Print Service
+Firewall
+Network Routing
+Backup Server
+Development Server
+Information Storage
+Virtual Server
+Reporting
+Logging
+Security
+Helpdesk
+Account Management
+Website
+End User Application
+Communication
+DNS
+Server Room
+Desktop manager

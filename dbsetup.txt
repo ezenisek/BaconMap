@@ -1,0 +1,190 @@
+DROP TABLE IF EXISTS tbl_application;
+CREATE TABLE IF NOT EXISTS tbl_application (
+  application_id int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL default '',
+  description text,
+  poc_id int(11) NOT NULL default '0',
+  host_id int(11) NOT NULL default '0',
+  role varchar(20) default NULL,
+  impacted int(11) default NULL,
+  children int(11) NOT NULL default '0',
+  date_purchased datetime default NULL,
+  last_maint_date datetime default NULL,
+  annual_cost int(11) default '0',
+  vendor varchar(255) default NULL,
+  rto int(11) NOT NULL default '30',
+  PRIMARY KEY  (application_id),
+  KEY FKpic_id (poc_id),
+  KEY FKapphost_id USING BTREE (host_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_box;
+CREATE TABLE IF NOT EXISTS tbl_box (
+  box_id int(11) NOT NULL auto_increment,
+  poc_id int(11) NOT NULL default '0',
+  `name` varchar(50) NOT NULL default '',
+  description text,
+  cpu_num int(11) NOT NULL default '0',
+  cpu_speed decimal(4,1) NOT NULL default '0.0',
+  `memory` decimal(4,1) NOT NULL default '0.0',
+  RAID tinyint(1) NOT NULL default '0',
+  disk_space decimal(4,1) NOT NULL default '0.0',
+  `serial` varchar(50) default NULL,
+  `purchase_date` varchar(50) default NULL,
+  model varchar(50) default NULL,
+  impacted int(11) default NULL,
+  virtual_os tinyint(1) default NULL,
+  location varchar(50) default NULL,
+  role varchar(20) NOT NULL default '',
+  children int(11) NOT NULL default '0',
+  date_purchased datetime default NULL,
+  last_maint_date datetime default NULL,
+  annual_cost int(11) default '0',
+  vendor varchar(255) default NULL,
+  rto int(11) NOT NULL default '30',
+  PRIMARY KEY  (box_id),
+  KEY FKpoc_id (poc_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_database;
+CREATE TABLE IF NOT EXISTS tbl_database (
+  database_id int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL default '',
+  description text,
+  poc_id int(11) NOT NULL default '0',
+  host_id int(11) NOT NULL default '0',
+  role varchar(20) default NULL,
+  `type` varchar(20) default NULL,
+  children int(11) NOT NULL default '0',
+  date_purchased datetime default NULL,
+  last_maint_date datetime default NULL,
+  annual_cost int(11) default '0',
+  vendor varchar(255) default NULL,
+  rto int(11) NOT NULL default '30',
+  impacted int(11) NOT NULL default '0',
+  PRIMARY KEY  (database_id),
+  KEY FKdbpoc_id USING BTREE (poc_id),
+  KEY FKdbhost_id USING BTREE (host_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_dep;
+CREATE TABLE IF NOT EXISTS tbl_dep (
+  p_table varchar(20) NOT NULL default '',
+  p_id int(11) NOT NULL default '0',
+  c_table varchar(20) NOT NULL default '',
+  c_id int(11) NOT NULL default '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS tbl_device;
+CREATE TABLE IF NOT EXISTS tbl_device (
+  device_id int(11) NOT NULL auto_increment,
+  poc_id int(11) NOT NULL default '0',
+  `name` varchar(50) NOT NULL default '',
+  `serial` varchar(50) default NULL,
+  model varchar(50) default NULL,
+  description text,
+  impacted int(11) default NULL,
+  location varchar(50) default NULL,
+  role varchar(20) NOT NULL default '',
+  children int(11) NOT NULL default '0',
+  date_purchased datetime default NULL,
+  last_maint_date datetime default NULL,
+  annual_cost int(11) default '0',
+  vendor varchar(255) default NULL,
+  rto int(11) NOT NULL default '30',
+  PRIMARY KEY  (device_id),
+  KEY FKdevpoc_id USING BTREE (poc_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_group;
+CREATE TABLE IF NOT EXISTS tbl_group (
+  group_id int(10) unsigned NOT NULL default '0',
+  mid int(10) unsigned NOT NULL default '0' COMMENT 'Member ID',
+  mtype varchar(25) NOT NULL default '',
+  `name` varchar(50) NOT NULL default '',
+  children int(11) NOT NULL default '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS tbl_poc;
+CREATE TABLE IF NOT EXISTS tbl_poc (
+  poc_id int(11) NOT NULL auto_increment,
+  emp_id varchar(20) default NULL,
+  `first` varchar(50) NOT NULL default '',
+  middle varchar(5) default NULL,
+  `last` varchar(50) NOT NULL default '',
+  phone varchar(10) NOT NULL default '',
+  email varchar(50) default NULL,
+  poc_type varchar(25) default NULL,
+  description text,
+  PRIMARY KEY  (poc_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_server;
+CREATE TABLE IF NOT EXISTS tbl_server (
+  server_id int(11) NOT NULL auto_increment,
+  host_id int(11) default NULL,
+  `name` varchar(30) NOT NULL default '',
+  description text NOT NULL,
+  OS varchar(20) NOT NULL default '',
+  virtual tinyint(1) default NULL,
+  poc_id int(11) default NULL,
+  impacted int(11) default NULL,
+  role varchar(20) NOT NULL default '',
+  children int(11) NOT NULL default '0',
+  date_purchased datetime default NULL,
+  last_maint_date datetime default NULL,
+  annual_cost int(11) default '0',
+  vendor varchar(255) default NULL,
+  rto int(11) NOT NULL default '30',
+  PRIMARY KEY  (server_id),
+  KEY FKbox_id USING BTREE (host_id),
+  KEY FKspoc_id USING BTREE (poc_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_service;
+CREATE TABLE IF NOT EXISTS tbl_service (
+  service_id int(11) NOT NULL auto_increment,
+  `name` varchar(50) NOT NULL default '',
+  description text,
+  poc_id int(11) NOT NULL default '0',
+  host_id int(11) NOT NULL default '0',
+  role varchar(20) default NULL,
+  impacted int(11) default NULL,
+  children int(11) NOT NULL default '0',
+  date_purchased datetime default NULL,
+  last_maint_date datetime default NULL,
+  annual_cost int(11) default '0',
+  vendor varchar(255) default NULL,
+  rto int(11) NOT NULL default '30',
+  PRIMARY KEY  (service_id),
+  KEY FKhost_id (host_id),
+  KEY FKserpoc_id USING BTREE (poc_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_session;
+CREATE TABLE IF NOT EXISTS tbl_session (
+  `user_id` int(10) unsigned default NULL,
+  `level` int(1) default NULL,
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `sessionid` varchar(32) default NULL,
+  PRIMARY KEY (user_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_upload;
+CREATE TABLE IF NOT EXISTS tbl_upload (
+  `name` text,
+  `encrypted` int(1) default NULL,
+  `objtype` varchar(20) default NULL,
+  `objid` int(11) default NULL,
+  `id` int(11) default NULL,
+  `flen` int(11) default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+DROP TABLE IF EXISTS tbl_user;
+CREATE TABLE IF NOT EXISTS tbl_user (
+  `email` varchar(50) default NULL,
+  `level` int(1) default NULL,
+  `password` varchar(32) default NULL,
+  `user_id` int(10) NOT NULL auto_increment,
+  PRIMARY KEY  (user_id)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1

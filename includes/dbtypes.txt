@@ -1,0 +1,13 @@
+#This is a file contianing all the database types used by BaconMap.  Feel free to add
+#your own.  The structure is pretty simple, any line prefaced by a pound sign (#)
+#is a comment and will be ignored by the program.  Any other line will be read
+#and included in any role related drop down boxes or other role specific parts of
+#the program.  This includes any blank lines, so it recommended that no blank
+#lines are included in this file.
+MSSQL
+MySQL
+Oracle
+PostgreSQL
+DB2
+Access
+Flat-File
